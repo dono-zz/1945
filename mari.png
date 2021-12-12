@@ -2289,7 +2289,7 @@ Link Config: <br>
 
 
 	                                                    }
-	                                                    unset($namafile);
+	                                                   
 	                                            $i++;   
 	                                                    
                                                         
