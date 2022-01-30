@@ -2,14 +2,5 @@
   "title":"maRiWagiMin",
   "version":"2.1",
   "is_active":true,
-  "changelog":"
-        <ul>
-            <li style='color:#f55858;'>v2.1
-              <ul>
-                <li style='color:#c44646;'>Update maRiwagiMin Style 1.0</li>
-                <li style='color:#c44646;'>Update upload random date</li>
-                <li style='color:#c44646;'>Compressing files</li>
-              </ul>
-            </li>
-         </ul>"
+  "changelog":"<ul><li style='color:#f55858;'>v2.1<ul><li style='color:#c44646;'>Update maRiwagiMin Style 1.0</li><li style='color:#c44646;'>Update upload random date</li><li style='color:#c44646;'>Compressing files</li></ul></li></ul>"
 }
