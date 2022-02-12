@@ -9,8 +9,8 @@
 		</form><hr><br></center>";
 			if ($_POST['list']) {
 			$output=null;
-			$retval=null;
-			Execute('crontab -l', $output, $retval);
+			
+			Execute('crontab -l', $output);
 			echo "<ol>";
 			foreach ($output as $key){
     			echo "<li>".$key."</li>";
