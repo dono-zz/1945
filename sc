@@ -42,9 +42,7 @@ function MM_openBrWindow(theURL,winName,features) { //v2.0
 </style>
 
 
-<center><br><h2><a href="?d=<?= hex($d) ?>&<?= hex('scanz') ?>">Local Backdoor Scanner</a></h2></center><br>
 
-<br>
 <?php
 
 if(isset($_POST['Submit'])){
