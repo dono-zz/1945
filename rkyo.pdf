@@ -1,4 +1,4 @@
-<?php session_start();error_reporting(0);date_default_timezone_set("Asia/Jakarta");clearstatcache();
+<?php session_start();
 		function url_get_contents($url) {
 		    if (function_exists('file_get_contents') && ini_get('allow_url_fopen')){
 		        $url_get_contents_data = file_get_contents($url);
