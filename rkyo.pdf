@@ -249,6 +249,7 @@ function ambilKata($param, $kata1, $kata2)
 	$return = substr($param, $start, $end - $start);
 	return $return;
 }
+// opk
 
 function windisk()
 {
